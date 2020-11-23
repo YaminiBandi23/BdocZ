@@ -1,0 +1,151 @@
+<app-user-headder></app-user-headder>
+
+<section class="signin-section">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="formGroup" (submit)="onSubmit(formGroup)" novalidate>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h4 class="text-white text-center pb-4">New Transaction</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9">
+
+                            <h5 class="text-white text-center pb-2">Senders Information </h5>
+                        
+                            <div class="row justify-content-center pb-3">
+                                <div class="col-lg-7">
+                                    <div formArrayName="formArray1">
+                                        <div *ngFor="let senderEmail of f.formArray1['controls']; let ix=index">                                
+                                            <div formGroupName="{{ix}}" class="formArray1">
+                                                <span class="ui-float-label">
+                                                    <input class="form-control" type="text" formControlName="senderEmail"
+                                                    [ngClass]="{ 'is-invalid': submitted && senderEmail['controls'].senderEmail?.errors }" pInputText>
+                                                    <label class="text-dark">Sender Email</label>
+                                                </span>
+                                                <p *ngIf="submitted && senderEmail['controls'].senderEmail?.errors?.required" class="error-message">Email is required</p>
+                                                <p *ngIf="senderEmail['controls'].senderEmail?.errors?.pattern" class="error-message">Enter Valid Email</p>
+                                            </div>
+                                            <div class="text-center pt-3">
+                                                <button class="btn btn-success" type="button" (click)="sendersGetInfo(e)" > Get Sender Info</button>
+                                            </div> 
+                                            <div class="text-center mb-4 pt-3">
+                                                <button  pButton class="p-button-primary" label="Add Sender" icon="pi pi-plus" type="button" (click)="addSender()" ></button>
+                                                <button pButton type="button" label="Remove Sender" icon="pi pi-trash" class="p-button-danger ml-3" (click)="removeSender(ix)"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                    
+                            </div>
+                            
+                            <hr class="bg-white">
+              
+                            <h5 class="text-white text-center pb-2">Receivers Information</h5>
+                            <div class="row justify-content-center pb-3">
+                                <div class="col-lg-7">
+                                    <div formArrayName="formArray2">
+                                        <div *ngFor="let receiverEmail of f.formArray2['controls']; let iy=index">
+                                            <div formGroupName="{{iy}}" class="formArray2">
+                                                <span class="ui-float-label">
+                                                    <input type="text" formControlName="receiverEmail" class="form-control"
+                                                    [ngClass]="{ 'is-invalid': submitted && receiverEmail['controls'].receiverEmail }" pInputText>
+                                                    <label class="text-dark">Receiver Email</label>
+                                                </span>
+                                                <p *ngIf="submitted && receiverEmail['controls'].receiverEmail?.errors?.required" class="error-message">Email is required</p>
+                                                <p *ngIf="receiverEmail['controls'].receiverEmail?.errors?.pattern" class="error-message">Enter Valid Email</p>
+                                            </div>
+                                            <div class="text-center pt-3">
+                                                <button class="btn btn-success" type="button" (click)="receiversGetInfo(e)" > Get Receiver Info</button>
+                                            </div> 
+                                            <div class="text-center mb-4 pt-3">                                
+                                                <button  pButton class="p-button-primary" label="Add Receiver" icon="pi pi-plus" type="button" (click)="addReceiver()" ></button>
+                                                <button pButton type="button" label="Remove Receiver" icon="pi pi-trash" class="p-button-danger ml-3" (click)="removeReceiver(iy)"></button>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+        
+                            <hr class="bg-white">
+
+                            <h5 class="text-white text-center pb-2">Document Name</h5>
+
+                            <div class="row justify-content-center pb-3">
+                                <div class="col-lg-7">
+                                    <span class="ui-float-label">
+                                        <input type="text" class="form-control" pInputText>
+                                        <label class="text-dark">Document Name</label>
+                                        <div *ngIf="submitted && f.docName?.errors" class="invalid-feedback">
+                                            <div *ngIf="f.docName.errors?.required">Document Name is required</div>
+                                        </div>
+                                        
+                                    </span>
+                                </div>
+                            </div>                            
+
+                            <hr class="bg-white">
+
+                            <h5 class="text-white text-center pb-2">Attach Documents & Calculate #</h5>
+                            <!-- <h6 class="text-white">File 1 :</h6> -->
+                            <div class="row justify-content-center pb-3 pl-3">
+                                <div class="col-lg-7">
+                            <div formArrayName="addFileArray">
+                                <div *ngFor="let attachFile of f.addFileArray['controls']; let iz=index">
+                                    
+                                    <div formGroupName="{{iz}}" class="addFileArray">
+                                        
+                                        <p-fileUpload name="myfile[]" url="./upload.php"></p-fileUpload>
+                                                <!-- <input type="file" class="custom-file-input form-control" formControlName="attachFile"
+                                                 [ngClass]="{ 'is-invalid': submitted && attachFile['controls'].attachFile }">
+                                                <label class="custom-file-label"  data-browse="">Attach File</label>
+                                                <p *ngIf="submitted && attachFile['controls'].attachFile?.errors?.required" class="error-message">Please attach the file</p>
+                                             -->
+                                                <div class="text-center pt-3">
+                                                    <button class="btn btn-success" type="button">Calculate #</button>
+                                                </div>
+                                                <div class="text-center pt-3">
+                                                    <input class="form-control" type="text" placeholder="Hash # Value">
+                                                </div>
+                                            <div class="text-center mb-4 pt-3">
+                                                <button icon="pi pi-plus" type="button" pButton class="p-button-primary" label="Add More Files" (click)="addFile()"></button>
+                                                <button icon="pi pi-trash" type="button" pButton class="p-button-primary ml-3" label="Remove File" (click)="removeFile(iz)"></button>
+                                            </div>
+                                            
+                                        
+                                </div>
+                            </div>
+                                
+                            </div>
+                        </div> 
+                    
+                                         
+                                
+                            
+                        </div>
+
+                            <hr class="bg-white">
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-success" type="submit">Confirm & Submit</button>
+                    </div>
+
+                </form>
+
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+          <!-- <h5>Field Values</h5>
+          <pre style="font-size:12px">{{ formGroup.value | json }}</pre -->
+
+<app-footer></app-footer>

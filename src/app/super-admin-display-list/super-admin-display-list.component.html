@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-end">
+
+<div class="styles">
+    <button styleClass="p-button-sm" pButton [routerLink]="['/transactionList']" pRipple type="button" label="Transaction Report" class="p-button-raised"
+    ></button>
+</div>
+
+<div  class="styles">
+    <button styleClass="p-button-sm" pButton [routerLink]="['/adminUserList']"  pRipple type="button" label="User List" class="p-button-raised"></button>  
+</div>
+
+<div  class="styles">
+    <button styleClass="p-button-sm" pButton  [routerLink]="['/adminList']"  pRipple type="button" label="Admin List" class="p-button-raised"></button> 
+</div>
+
+<div  class="styles">
+    <button styleClass="p-button-sm"  *ngIf="!AdminListComponent" pButton  [routerLink]="['/adminList']"  pRipple type="button" label="Add Admin" class="p-button-raised"  (click)="addAdminFunction()" ></button> 
+</div>
+
+</div>
+

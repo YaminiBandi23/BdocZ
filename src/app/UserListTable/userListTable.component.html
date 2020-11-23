@@ -1,0 +1,25 @@
+<p-table [value]="datak" [paginator]="true"  [resizableColumns]="true"
+ [rows]="5" [rowsPerPageOptions]="[5,10,25,50]">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pResizableColumn>S.NO</th>
+            <th pResizableColumn>Full Name</th>
+            <th pResizableColumn>Email Address	</th>        
+            <th pResizableColumn>Phone Number		</th>          
+            <th pResizableColumn>Address</th>          
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-datak>
+        <tr >
+            <td>{{datak.id}}</td> 
+            <td>{{datak.firstName}} {{datak.lastName}}</td>
+            <td>{{datak.email}}</td>       
+            <td>{{datak.phoneNumber}}</td>     
+            <td>{{datak.streetAddress}}, {{datak.city}}, {{datak.zipCode}}</td> 
+            
+        </tr>
+    </ng-template>
+
+    
+  </p-table>

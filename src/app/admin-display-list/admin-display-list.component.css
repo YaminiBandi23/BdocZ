@@ -1,0 +1,12 @@
+/deep/ .ngx-datatable.material .datatable-header .datatable-header-cell {
+color: black;
+font-weight: bold;
+font-size: 15px;
+
+  }
+  
+ /deep/ .btn-outline-dark{
+border-color: white;
+color: white;
+ }
+  

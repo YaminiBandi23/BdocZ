@@ -1,0 +1,194 @@
+<app-admin-header></app-admin-header>
+
+<toastr-notification></toastr-notification>  
+
+<section class="signin-section">
+  <form method="POST" action="">
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <div  class="d-flex justify-content-end row">
+            <app-super-admin-display-list></app-super-admin-display-list>
+            </div>
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h4>Administrators List</h4>
+            </div>
+          </div>
+          <div class="row" >
+                <div class="col-lg-12 text-center pb-3 pt-3">
+            <button type="button" (click)="showDialog(); addAdminClicked()" pButton icon="pi pi-plus" label="Add Admin"></button>
+                </div>
+              </div>
+              <div class="row">
+                    <div class="col-lg-12 text-center">
+                    </div>
+                  </div>
+          <p-table [value]="datak" [paginator]="true"   [rows]="5"
+            [rowsPerPageOptions]="[5,10,20,50,100,500]" selectionMode="single"
+          dataKey="id" [resizableColumns]="true"  editMode="row">
+
+              <ng-template pTemplate="header" >
+                  <tr>
+                      <th pResizableColumn>S.NO</th>
+                      <th pResizableColumn>First Name</th>
+                      <th pResizableColumn>Last Name</th>
+                      <th pResizableColumn>Email Address</th>
+                      <th pResizableColumn >Password</th>        
+                      <th pResizableColumn >Phone Number</th>          
+                      <th pResizableColumn>Action</th>          
+
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-editing="editing" let-ri="rowIndex">
+                  <tr [pEditableRow]="rowData" >
+                      <td>{{rowData.id}}</td> 
+
+                      <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" 
+                                 name="password" [(ngModel)]="rowData.password">
+                            </ng-template>
+                            <ng-template pTemplate="output" >
+                                {{rowData.firstName}}
+                              </ng-template>
+                        </p-cellEditor>
+                      </td> 
+
+                      <td>
+                          <p-cellEditor>
+                              <ng-template pTemplate="input">
+                                  <input pInputText type="text" 
+                                   name="firstName" [(ngModel)]="rowData.firstName">
+                              </ng-template>
+                              <ng-template pTemplate="output" >
+                                  {{rowData.lastName}}
+                                </ng-template>
+                          </p-cellEditor>
+                      </td>
+
+                        <td>
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input pInputText type="text" 
+                                     name="lastName" [(ngModel)]="rowData.lastName">
+                                </ng-template>
+                                <ng-template pTemplate="output" >
+                                    {{rowData.email}}
+                                  </ng-template>
+                            </p-cellEditor>
+                          </td>
+
+                      <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" 
+                                 name="email" [(ngModel)]="rowData.email">
+                            </ng-template>
+                            <ng-template pTemplate="output" >
+                                {{rowData.password}}
+                              </ng-template>
+                        </p-cellEditor>
+                      </td>  
+
+                      <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" 
+                                 name="phoneNumber" [(ngModel)]="rowData.phoneNumber">
+                            </ng-template>
+                            <ng-template pTemplate="output" >
+                                {{rowData.phoneNumber}}
+                              </ng-template>
+                        </p-cellEditor>
+                      </td>    
+
+                      <td>
+                        <button *ngIf="!editing" pButton type="button" pInitEditableRow pTooltip="Edit"  tooltipPosition="top" 
+                        icon="pi pi-pencil" class="ui-button-info" (click)="onRowEditInit(rowData, rInt)"></button>
+                        <button *ngIf="editing" pButton type="button" pSaveEditableRow pTooltip="Save" tooltipPosition="top"
+                        icon="pi pi-check" class="ui-button-success" style="margin-right: .5em" (click)="onRowEditSave(rowData, rs)"></button>
+                        <button *ngIf="editing" pButton type="button" pCancelEditableRow  pTooltip="Cancel" tooltipPosition="top"
+                         icon="pi pi-times" class="ui-button-danger" (click)="onRowEditCancel(rowData, rc)"></button>
+                        <button *ngIf="!editing" type="button" pButton icon="fa fa-close" pTooltip="Delete" tooltipPosition="top"
+                         pDeletetabkeRow style="margin-left : 5px"  icon="pi pi-times" class="ui-button-danger" (click)="onRowDelete(rowData, rc)"
+                          ></button>
+
+                      </td>    
+                      <!-- (click)="onRowDelete(rowData, rc)" -->
+
+                  </tr>
+              </ng-template>
+          
+              <ng-template pTemplate="summary" >
+
+                  <p-dialog header="Add Admin" [(visible)]="display" [modal]="true" [style]="{width: '50vw'}" [maximizable]="true" [baseZIndex]="10000"
+                  [draggable]="false" [resizable]="false">
+                  <div class="ui-g ui-fluid" >
+                      <div class="ui-g-12">
+                          <div class="ui-g-4">
+                              <label >First Name</label>
+                          </div>
+                          <div class="ui-g-4">
+                              <input pInputText id="addfirstName" name="addfirstName" [(ngModel)]="addAdmin.firstName" autofocus />
+                          </div>
+                          </div>
+                          </div>
+                          <div class="ui-g ui-fluid" >
+                              <div class="ui-g-12">
+                                  <div class="ui-g-4">
+                                      <label for="vin">Last Name</label>
+                                  </div>
+                                  <div class="ui-g-4">
+                                      <input pInputText  id="addLastName" name="addLastName" [(ngModel)]="addAdmin.lastName" autofocus />
+                                  </div>
+                                  </div>
+                                  </div>
+                                  <div class="ui-g ui-fluid" >
+                                      <div class="ui-g-12">
+                                          <div class="ui-g-4">
+                                              <label for="vin">Email Address</label>
+                                          </div>
+                                          <div class="ui-g-4">
+                                              <input pInputText  id="addEmail" name="addEmail" [(ngModel)]="addAdmin.email" autofocus />
+                                          </div>
+                                          </div>
+                                          </div>
+
+                                          <div class="ui-g ui-fluid" >
+                                              <div class="ui-g-12">
+                                                  <div class="ui-g-4">
+                                                      <label for="vin">Password</label>
+                                                  </div>
+                                                  <div class="ui-g-4">
+                                                      <input pInputText id="addPassword" name="addPassword" [(ngModel)]="addAdmin.password" autofocus />
+                                                  </div>
+                                                  </div>
+                                                  </div>
+
+                                          <div class="ui-g ui-fluid" >
+                                              <div class="ui-g-12">
+                                                  <div class="ui-g-4">
+                                                      <label for="vin">Phone Number</label>
+                                                  </div>
+                                                  <div class="ui-g-4">
+                                                      <input pInputTextid="addPhoneNmumber" name="addPhoneNmumber" [(ngModel)]="addAdmin.phoneNumber" autofocus />
+                                                  </div>
+                                                  </div>
+                                                  </div>
+                      <p-footer>
+                          <button type="button" pButton icon="pi pi-check" (click)="display=false; save()" label="Save"></button>
+                          <button type="button" pButton icon="pi pi-times" (click)="display=false" label="Cancel" class="ui-button-secondary"></button>
+                      </p-footer>
+              </p-dialog>
+              
+              </ng-template>
+            </p-table>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+
+<router-outlet></router-outlet>

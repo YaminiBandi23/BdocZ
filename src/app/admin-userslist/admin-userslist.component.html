@@ -1,0 +1,28 @@
+<app-admin-header></app-admin-header>
+
+<section class="signin-section bg-white">
+  <form method="POST" action="">
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <div class="row" class="p-mr-2 p-as-end" *ngIf="isSuperAdmin">
+            <app-super-admin-display-list></app-super-admin-display-list>
+            </div>
+            <div class="row" class="p-mr-2 p-as-end" *ngIf="!isSuperAdmin">
+                <app-admin-display-list [role]="role" ></app-admin-display-list>
+            </div> 
+
+          <div class="row">
+            <div class="col text-center pb-3 pt-3">
+              <h4>User List</h4>
+            </div>
+          </div>
+          <app-userListTable></app-userListTable>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+
+<app-footer></app-footer>
+<router-outlet></router-outlet>

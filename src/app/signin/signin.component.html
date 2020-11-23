@@ -1,0 +1,63 @@
+<app-header></app-header>
+<section class="signin-section">
+   
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+
+
+      <div class="container ">
+        <div class="card">
+          <div class="card-body ">
+          <div class="row justify-content-center">
+              <div class="col-lg-12 pb-3">
+                  <h5 class="text-white text-center">Sign in to transact documents</h5>
+              </div>
+          </div>
+          <div class="row col-lg-5">
+          <toastr-notification></toastr-notification>  
+          </div>
+
+          <div class="row justify-content-center">
+          
+              <div class="col-lg-5 form-group pb-3">
+                <span class="ui-float-label">
+                  <input pInputText type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted &amp;&amp; signInForm.controls.email.errors }" [(ngModel)] = "email" />
+                   <label class="text-dark pl-3">Email</label>
+                    </span>
+                   <div *ngIf="submitted &amp;&amp; signInForm.controls.email.errors" class="text-danger">
+                        <div *ngIf="signInForm.controls.email.errors.required">Email is required</div>
+                        <div *ngIf="signInForm.controls.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                  <!-- <small id="emailHelp" class="form-text text-white text-center my-3" style="font-size:100%">Need an account? <a routerLink="/signup" class="text-white text-underline"><u>Sign up</u></a></small> -->
+              </div>
+            </div>
+
+
+            <div class="row justify-content-center">
+              <div class="col-lg-5 form-group pb-3">
+                <span class="ui-float-label">                  
+                  <input type="password" pInputText formControlName="password" [(ngModel)] = "password" class="form-control" [ngClass]="{ 'is-invalid': submitted &amp;&amp; signInForm.controls.password.errors }"  />
+                  <label class="text-dark pl-3">Password</label>
+                    </span>
+                  <div *ngIf="submitted &amp;&amp; signInForm.controls.password.errors" class="text-danger">
+                        <div *ngIf="signInForm.controls.password.errors.required">Password is required</div>
+                    </div>
+                  
+                  <small id="emailHelp" class="form-text text-center pt-2" style="font-size:100%"><a routerLink="/reset-password" class="text-white"><u>Forgot your password?</u></a></small>
+              </div>
+             
+          
+        </div> 
+        <div class="row justify-content-center">
+        <div class="col-lg-2 form-group">
+          <button type="submit" class="btn btn-block btn-signin"> Sign in </button>
+      </div>
+    </div> 
+      </div>
+      </div>
+      </div>
+  </form>
+
+</section> 
+<app-footer></app-footer>
+
+<router-outlet></router-outlet>

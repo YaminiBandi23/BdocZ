@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" (submit)="onSubmit(formGroup)" novalidate>
+        <div formArrayName="formArray1">
+            <div *ngFor="let senderEmail of f.formArray1['controls']; let ix=index">
+                <div formGroupName="{{ix}}" class="formArray1">
+                    <input type="text" formControlName="senderEmail">
+                    <p *ngIf="senderEmail['controls'].senderEmail?.errors?.required">Email is required</p>
+                    <p *ngIf="senderEmail['controls'].senderEmail?.errors?.pattern">Enter Valid Email</p>
+                </div>
+                <button type="button" (click)="addSender()" > Add Sender </button>
+            <button type="button" (click)="removeSender(index)">Remove Sender </button>
+            </div>
+        </div>
+
+
+        <div formArrayName="formArray2">
+                <div *ngFor="let receiverEmail of f.formArray2['controls']; let iY=index">
+                    <div formGroupName="{{iY}}" class="formArray2">
+                        <input type="text" formControlName="receiverEmail">
+                        <p *ngIf="receiverEmail['controls'].receiverEmail?.errors?.required">Email is required</p>
+                        <p *ngIf="receiverEmail['controls'].receiverEmail?.errors?.pattern">Enter Valid Email</p>
+                    </div>
+                    <button type="button" (click)="addReceiver()" > Add Receiver </button>
+                <button type="button" (click)="removeReceiver(index)">Remove Receiver</button>
+                </div>
+            </div>
+
+           
+            <button type="submit">SUBMIT</button>
+            <form>
+    
+                <!-- <h5>Field Values</h5>
+                <pre style="font-size:12px">{{ formGroup.value | json }}</pre -->

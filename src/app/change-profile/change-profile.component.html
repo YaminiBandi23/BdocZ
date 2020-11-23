@@ -1,0 +1,82 @@
+<app-user-headder></app-user-headder>
+
+
+<section class="signin-section">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <h4 class="text-center mb-3">Change Profile</h4>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <!-- <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                             <input disabled type="text" placeholder="Email" class="p-text-center form-control"  [(ngModel)]="usersData.email">
+                            </div>
+                        </div> -->
+                        <h4 class="text-center mb-3">{{usersData.email}}</h4>
+
+                        <div class="row justify-content-center pt-2">
+                            <div class="col-lg-4">
+                                <input  id="firstName" type="text" placeholder="First Name" 
+                                class="p-text-center form-control" pInputText [(ngModel)]="usersData.firstName">
+                            </div>
+                            <div class="col-lg-4">
+                                <!-- <label>Last Name:&nbsp;</label>-->
+                                <input type="text" placeholder="Last Name" class="p-text-center form-control" pInputText [(ngModel)]="usersData.lastName">
+                            </div>
+                            <div class="col-lg-4" >
+                                <p-calendar class="calndr" placeholder="Date of Birth"   [(ngModel)]="usersData.dateOfBirth">
+                            </p-calendar>
+                                </div>
+                        </div>
+                        <div class="row justify-content-center pt-4">
+                            
+                            <div class="col-lg-4">
+                                <!-- <label>Phone:&nbsp;</label>-->
+                                <input type="text" placeholder="Phone" class="p-text-center form-control" pInputText [(ngModel)]="usersData.phoneNumber">
+                            </div>
+                            <div class="col-lg-4">
+                                <!-- <label>SSN Number:&nbsp;</label>-->
+                                <input type="text" placeholder="SSN Number" class="p-text-center form-control" pInputText [(ngModel)]="usersData.socialSecurityNumber">
+                            </div>
+                            <div class="col-lg-4">
+                                <!-- <label>Street:&nbsp;</label>-->
+                                <input type="text" placeholder="Street" class="p-text-center form-control" pInputText [(ngModel)]="usersData.streetAddress">
+                            </div>                            
+                        </div>
+                        <div class="row justify-content-center pt-4">
+                                                        
+                            <div class="col-lg-4">
+                                <!-- <label>City:&nbsp;</label>-->
+                                <input type="text" placeholder="City" class="p-text-center form-control" pInputText [(ngModel)]="usersData.city">
+                            </div>
+                            <div class="col-lg-4">
+                                <!-- <label>Zip Code:&nbsp;</label>-->
+                                <input type="text" placeholder="Zip Code" class="p-text-center form-control" pInputText [(ngModel)]="usersData.zipCode">
+                            </div>
+                            
+                            <div class="col-lg-4">
+                                <!-- <label>State:&nbsp;</label>-->
+                                <input type="text" placeholder="State" class="p-text-center form-control" pInputText [(ngModel)]="usersData.stateName">
+                            </div>
+                            
+                        </div>
+                        <div class="text-center pt-3">
+                            <button type="submit" (click)="onSubmit()"  class="btn btn-success ml-3 px-5 mt-3">Update Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<app-footer></app-footer>
+
+  

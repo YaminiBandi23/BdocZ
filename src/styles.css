@@ -1,0 +1,278 @@
+/* You can add global styles to this file, and also import other style files */
+/* Custom Styles */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import 'ag-grid-community/dist/styles/ag-grid.css';
+@import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+@import 'primeflex/primeflex.css';
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/nova-light/theme.css';
+@import '~primeng/resources/primeng.min.css';
+
+* {
+    -webkit-box-sizing: border-box;
+  }
+  
+body{
+    color: #425263;
+    font-family: 'Open Sans', sans-serif;
+}
+.text-black{
+    color: #000000 !important;
+}
+.text-decoration-none:hover{
+    text-decoration: none;
+}
+
+.btn{
+    cursor: pointer !important;
+}
+.inner-navbar{
+    background-color: #1c4a90;
+    height:50px;
+}
+
+.inner-navbar .navbar-nav {
+    flex-direction: inherit;
+}
+
+.login-section{
+    background-color: #b8c4fc;
+    padding: 100px 0;
+}
+
+
+.signin-section{
+    background: #b8c4fc;
+    padding: 50px 0;
+}
+
+.signup-section{
+    background: #b8c4fc;
+    padding: 50px;
+}
+
+
+
+.btn-login,.btn-login:hover,.btn-login:focus,.btn-login:active,.btn-login:visited{
+    background-color: #28a745;
+    color: #fff !important;
+    border: 0;
+}
+
+.btn-signin,.btn-signin:focus,.btn-signin:active,.btn-signin:visited{
+    background-color: #4bbb86;
+    color: #fff !important;
+    border: 0;
+    
+}
+
+.btn-signin:hover{
+    background-color: white;
+    color: #4bbb86 !important;
+    border: 2px solid #4bbb86;
+    padding:4px 10px;
+    
+}
+
+
+
+.btn-header,.btn-header:focus,.btn-header:active,.btn-header:visited{
+    background-color:#1C4A90;
+    color: #fff !important;
+    border: 0;
+}
+
+/* .btn-header:hover{
+    border: 2px solid #1C4A90; 
+    color: black !important;
+    background-color: white;
+   
+} */
+
+.btn-outline-light:hover {
+     background-color: #b8c4fc; 
+    color:white !important;
+    border: 1px solid black; 
+    /*border: 0;*/
+}
+
+h4, h5{
+    color:white;
+}*/
+
+
+
+.btn-responsive {
+    white-space: normal !important;
+    word-wrap: break-word;
+}
+
+.card{
+    border-color: #212e61 !important;
+    background-color: #1C4A90;
+}
+
+.footer{
+    padding: 40px 0 20px;
+    background-color: #212e61;
+}
+
+.copyright-footer{
+    background-color: #212e61;
+}
+
+.footer-wrapper{
+    padding: 10px;
+}
+
+.footer-list li{
+    padding: 10px 0;
+}
+
+.footer-list a{
+    color: #fff;
+}
+
+.footer-social li{
+    display:inline-block;
+    font-size: 14px;
+}
+
+.footer-social li a{
+    font-size: 18px;
+    padding-right: 15px;
+    color: #fff;
+}
+
+/*.select{
+    background: url('assets/select-image.jpg') no-repeat right;
+    -moz-appearance:none; 
+    -webkit-appearance:none; 
+    appearance:none;
+    background-position-x: 95%;
+}*/
+
+.add-admin-bg{
+    background-color: #699bd2;
+    color: #fff;
+}
+
+.add-admin-btn,.add-admin-btn:hover,.add-admin-btn:focus,.add-admin-btn:active,.add-admin-btn:visited{
+    background-color: #699bd2;
+    color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+    margin: 0 20px;
+}
+
+.navbar-light .navbar-nav .nav-item .active {
+    color: #1C4A90;
+}
+
+.navbar-light .navbar-nav .nav-item .active > span{
+    border-bottom: 6px solid #1C4A90;
+}
+
+.dropdown-menu{
+    padding: 1rem 0.5rem;
+}
+
+.custom-dropdown .dropdown-menu{
+    padding: 0;
+    border-radius: 0;
+    background-color: #5193e8;
+}
+
+.custom-dropdown .dropdown-menu a{
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.custom-dropdown .dropdown-menu a:hover{
+    color: #000000;
+}
+.custom-pills .nav-link{
+    color: #000;
+}
+.custom-pills .nav-link.active{
+    background-color: #b8c4fc;
+    color: #000;
+}
+
+.document-list li{
+    padding: 15px 0;
+}
+.document-list li span{
+    margin-right: 15px;
+    padding: 3px 10px;
+    border: 2px solid #000;
+}
+
+/*.custom-file-input:lang(en) ~ .custom-file-label::after{
+    background: url('assets/pin.jpg') no-repeat center center;
+    background-color: transparent;
+    background-size: 15px 20px;
+    border-left: 0;
+}*/
+
+.page-title{
+    font-size: 0.8rem;
+}
+
+@media (max-width: 575.98px) {  
+    .title-section a {
+        font-size: 0.7rem;
+    }
+}
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .title-section a {
+        font-size: 0.7rem;
+    }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+   
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+    .custom-pills{
+        margin-left: 120px;
+    }
+
+    .add-admin-form .col-form-label{
+        text-align: right !important;
+        float: right;
+    }
+
+    .btn-sm.btn-header,.btn-sm.btn-header:hover,.btn-sm.btn-header:focus,.btn-sm.btn-header:active,.btn-sm.btn-header:visited{
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+    }
+
+    .add-admin-page-btns{
+        float:right;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-danger{
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    /* font-size: large; */
+}
+a.py-1.px-lg-4.mr-lg-3.mb-lg-0.btn.btn-sm.btn-outline-light {
+    color: white;
+}   
